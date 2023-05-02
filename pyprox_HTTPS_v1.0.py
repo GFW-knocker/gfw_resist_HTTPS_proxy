@@ -95,6 +95,7 @@ offline_DNS = {
 
 
 'www.google.com': '142.250.186.36',
+# 'www.google.com': '216.239.38.120',
 'youtube.com':'216.239.38.120',
 'www.youtube.com':'216.239.38.120',
 'i.ytimg.com':'216.239.38.120',
@@ -102,7 +103,7 @@ offline_DNS = {
 # 'yt3.ggpht.com': '64.233.165.198',   # filtered
 # 'yt3.ggpht.com': '142.250.179.161',  # filtered
 # 'yt3.ggpht.com': '142.250.186.65',   # sometimes work
-'yt3.ggpht.com': '142.250.186.33',   # most of times work
+'yt3.ggpht.com': '142.250.186.36',   # most of times work
 #######################################################
 
 
