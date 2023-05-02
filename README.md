@@ -19,28 +19,28 @@
 
 # swiss army to injure GFW
 - for developers want to expriment around GFW<br>
-<img src="/asset/swiss_army.png?raw=true" width="300" ><br>
+<img src="/asset/swiss_army.png?raw=true" width="200" ><br>
 
 # the structure
-<img src="/asset/slide2.png?raw=true" width="300" ><br>
+<img src="/asset/slide2.png?raw=true" width="600" ><br>
 
 # how to run:
 1. install these python package if you dont have<br>
-<img src="/asset/install_packages.png?raw=true" width="300" ><br>
+<img src="/asset/install_packages.png?raw=true" width="500" ><br>
 2. set up your browser or v2ray<br>
-<img src="/asset/firefox_proxy.png?raw=true" width="300" ><br>
-<img src="/asset/v2ray_custom.png?raw=true" width="300" ><br>
+<img src="/asset/firefox_proxy.png?raw=true" width="500" ><br>
+<img src="/asset/v2ray_custom.png?raw=true" width="500" ><br>
 3. run python<br>
 <code>python pyprox_HTTPS_v1.0.py</code><br>
 4. surf the web & youtube<br>
 
 # do Experiments
 1. adjust parameters<br>
-<img src="/asset/customize_params.png?raw=true" width="300" ><br>
+<img src="/asset/customize_params.png?raw=true" width="500" ><br>
 2. add your domain:ip to offline DNS to directly connect to it<br>
-<img src="/asset/offline_DNS.png?raw=true" width="300" ><br>
+<img src="/asset/offline_DNS.png?raw=true" width="500" ><br>
 3. watch the log<br>
-<img src="/asset/IP_Log.png?raw=true" width="300" ><br>
+<img src="/asset/IP_Log.png?raw=true" width="500" ><br>
 
 # Acknowledgement
 1. helping on DoH related things<br>
