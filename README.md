@@ -27,20 +27,21 @@
 # how to run:
 1. install these python package if you dont have<br>
 <img src="/asset/install_packages.png?raw=true" width="500" ><br>
-2. set up your browser or v2ray<br>
-<img src="/asset/firefox_proxy.png?raw=true" width="500" ><br>
-<img src="/asset/v2ray_custom.png?raw=true" width="500" ><br>
+2. set up your browser to use HTTPS proxy<br>
+<img src="/asset/firefox_proxy.png?raw=true" width="500" ><br><br>
+ OR setup v2ray by importing custom config<br>
+<img src="/asset/v2ray_custom.png?raw=true" width="500" ><br><br>
 3. run python<br>
 <code>python pyprox_HTTPS_v1.0.py</code><br>
 4. surf the web & youtube<br>
 
-# do Experiments
+# do Research on GFW
 1. adjust parameters<br>
-<img src="/asset/customize_params.png?raw=true" width="500" ><br>
+<img src="/asset/customize_params.png?raw=true"  ><br>
 2. add your domain:ip to offline DNS to directly connect to it<br>
-<img src="/asset/offline_DNS.png?raw=true" width="500" ><br>
+<img src="/asset/offline_DNS.png?raw=true"  ><br>
 3. watch the log<br>
-<img src="/asset/IP_Log.png?raw=true" width="500" ><br>
+<img src="/asset/IP_Log.png?raw=true"  ><br>
 
 # Acknowledgement
 1. helping on DoH related things<br>
