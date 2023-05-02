@@ -9,12 +9,12 @@
 - HTTPS proxy in single python script<br>
 - Armed with <a href="https://github.com/GFW-knocker/gfw_resist_tls_proxy">Fragment technology</a><br>
 - Equipped with Offline DNS Resolver<br>
-- plus DNS over HTTPS (DoH)<br>
+- plus DNS-over-HTTPS (DoH)<br>
 - plus IP Quality Analyzer<br>
 
 # Directly bypass SNI and DNS filtering
 - without any VPS or server<br>
-- bypass SNI filtering using Fragments<br>
+- bypass SNI filtering using <a href="https://github.com/GFW-knocker/gfw_resist_tls_proxy">Fragment</a><br>
 - bypass DNS filtering using DoH and offline DNS<br>
 
 # swiss army to injure GFW
