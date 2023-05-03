@@ -1,6 +1,6 @@
 # یوتیوب آزاد شد - بدون سرور - برای تمام اپراتورها
 با این  "تیزافزار"  میتوانید فیلترینگ یوتیوب را بدون هیچگونه سروری دور بزنید<br>
-یک درصد اگر روی نت شما ویدئو ها load نشد دو سه بار refresh صفحه بزنید و یک دقیقه صبر کنید<br>
+اگر روی نت شما ویدئو ها load نشد دو سه بار refresh صفحه بزنید و یک دقیقه صبر کنید<br>
 بخشی از مشکلات بخاطر محدودیت CORS در سرورهای گوگل میباشد<br> 
 بزودی مجموعه آیپی های تمیز گوگل را اضافه خواهیم کرد<br>
 این محصول آزمایشی بوده و کارکرد اصلی آن تحقیق روی فیلترینگ میباشد<br><br>
@@ -53,7 +53,8 @@
 <img src="/asset/IP_Log.png?raw=true"  ><br>
 
 # Acknowledgement
-1. helping on DoH related things<br>
+1. helping on DNS & DoH related things<br>
+<a href="https://github.com/msasanmh/SecureDNSClient">SecureDNSClient</a> by <a href="https://github.com/msasanmh">msasanmh</a><br>
 <a href="https://github.com/amirhosseinds">amirhosseinds</a><br>
 <a href="https://github.com/J-Saeedi">J-Saeedi</a><br>
 <a href="https://github.com/alidxdydz">alidxdydz</a><br>
