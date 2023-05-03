@@ -35,8 +35,8 @@
 <img src="/asset/slide2.png?raw=true" width="600" ><br>
 
 # how to run:
-1. install these python package if you dont have<br>
-<img src="/asset/install_packages.png?raw=true" width="500" ><br>
+1. install requirements:<br>
+`pip install -r requirements.txt`
 2. set up your browser to use HTTPS proxy<br>
 <img src="/asset/firefox_proxy.png?raw=true" width="500" ><br><br>
  OR setup v2ray by importing custom config<br>
