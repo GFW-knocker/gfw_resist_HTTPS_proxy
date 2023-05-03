@@ -257,7 +257,14 @@ class ThreadedServer(object):
             server_socket.settimeout(my_socket_timeout)
             server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)   #force localhost kernel to send TCP packet immediately (idea: @free_the_internet)
 
-            server_IP = self.DoH.query(server_name)
+            try:
+                socket.inet_aton(server_name)
+                # print('legal IP')
+                server_IP = server_name
+            except socket.error:
+                # print('Not IP , its domain , try to resolve it')
+                server_IP = self.DoH.query(server_name)
+            
             server_socket.connect((server_IP, server_port))
             # Send HTTP 200 OK
             response_data = b'HTTP/1.1 200 Connection established\r\nProxy-agent: MyProxy/1.0\r\n\r\n'            
