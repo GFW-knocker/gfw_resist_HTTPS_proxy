@@ -49,6 +49,7 @@
 
   "outbounds": [
     {
+      "tag": "pyprox",
       "protocol": "http",
       "settings": {
         "servers": [
@@ -57,9 +58,14 @@
             "port": 4500            
           }
         ]
-      },
-      "tag": "direct"
+      }      
     },
+
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },    
 
     {
       "tag": "block",
@@ -86,6 +92,13 @@
           "api"
         ],
         "outboundTag": "api",
+        "enabled": true
+      },
+
+      {
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "pyprox",
         "enabled": true
       }
 
