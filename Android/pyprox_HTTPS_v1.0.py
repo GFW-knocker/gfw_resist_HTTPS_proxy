@@ -12,12 +12,14 @@ import time
 import random
 
 
+
+
 listen_PORT = 4500    # pyprox listening to 127.0.0.1:listen_PORT
 
-num_fragment = 87  # total number of chunks that ClientHello devided into (chunks with random size)
+num_fragment = 14  # total number of chunks that ClientHello devided into (chunks with random size)
 fragment_sleep = 0.01  # sleep between each fragment to make GFW-cache full so it forget previous chunks. LOL.
 
-log_every_N_sec = 30   # every 30 second , update log file with latest DNS-cache statistics
+log_every_N_sec = 10   # every 30 second , update log file with latest DNS-cache statistics
 
 # DNS_url = 'https://cloudflare-dns.com/dns-query?dns='      # not working in iran , ip blocked
 # DNS_url = 'https://dns.google/dns-query?dns='              # not working in iran , ip blocked
@@ -33,7 +35,24 @@ DNS_url = 'https://dns.electrotm.org/dns-query?dns='
 
 offline_DNS = {
 
-##################### working pack ################################
+
+
+# ################# twitter working pack ###################
+'ocsp.digicert.com': '192.229.211.108',
+
+'api.twitter.com': '104.244.42.66',
+'twitter.com': '104.244.42.1',
+'pbs.twimg.com': '93.184.220.70',
+'abs-0.twimg.com': '104.244.43.131',
+'abs.twimg.com': '152.199.24.185', 
+'video.twimg.com': '192.229.220.133', 
+'t.co': '104.244.42.69',
+'ton.local.twitter.com':'104.244.42.1',
+# ##########################################################
+
+
+
+##################### Google working pack ###################
 'ocsp.pki.goog': '172.217.16.195',
 'googleads.g.doubleclick.net': '45.157.177.108',
 'fonts.gstatic.com': '142.250.185.227',
@@ -62,11 +81,14 @@ offline_DNS = {
 'adservice.google.com': '202.61.195.218',
 'mail.google.com': '142.250.186.37', 
 'accounts.google.com': '172.217.16.205', 
-'lh3.googleusercontent.com': '193.26.157.66',
+
+# 'lh3.googleusercontent.com': '193.26.157.66', # filtered
+'lh3.googleusercontent.com':'142.251.167.132',
+
 'accounts.youtube.com': '172.217.16.206',
 'ssl.gstatic.com': '142.250.184.195', 
 'fonts.gstatic.com': '172.217.23.99', 
-'rr4---sn-hju7enll.googlevideo.com': '74.125.98.9',
+'rr4---sn-hju7enll.googlevideo.com': '74.125.98.9',   # good
 'rr2---sn-hju7enll.googlevideo.com': '74.125.98.7',
 'rr1---sn-hju7enel.googlevideo.com': '74.125.98.38',
 'rr5---sn-vh5ouxa-hjuz.googlevideo.com': '134.0.218.208', 
@@ -80,7 +102,6 @@ offline_DNS = {
 'rr5---sn-vh5ouxa-hju6.googlevideo.com': '213.202.6.144',
 'rr3---sn-hju7enel.googlevideo.com': '74.125.98.40',
 'rr5---sn-nv47zn7y.googlevideo.com': '173.194.15.74', 
-'rr1---sn-vh5ouxa-hju6.googlevideo.com': '213.202.6.140',
 'safebrowsing.googleapis.com': '202.61.195.218',
 'static.doubleclick.net': '193.26.157.66',
 'rr5---sn-vh5ouxa-hju6.googlevideo.com': '213.202.6.144', 
@@ -92,6 +113,17 @@ offline_DNS = {
 'rr2---sn-vh5ouxa-hjuz.googlevideo.com': '134.0.218.205', 
 'rr4---sn-nv47zn7r.googlevideo.com': '173.194.15.41',
 'rr4---sn-hju7en7r.googlevideo.com': '74.125.167.90',
+
+
+'rr4---sn-nv47znel.googlevideo.com': '74.125.98.7',  # good
+'rr4---sn-nv47lnl7.googlevideo.com':'74.125.98.7',
+'rr4---sn-hju7enll.googlevideo.com':'74.125.98.7',
+'rr1---sn-vh5ouxa-hju6.googlevideo.com':'74.125.98.7',
+'rr3---sn-hju7enel.googlevideo.com':'74.125.98.7',
+'rr5---sn-hju7enll.googlevideo.com':'74.125.98.7',
+'rr5---sn-vh5ouxa-hjuz.googlevideo.com':'74.125.98.7',
+'rr1---sn-nv47ln7z.googlevideo.com':'74.125.98.7',
+'rr3---sn-vh5ouxa-hju6.googlevideo.com': '74.125.98.7',
 
 
 'www.google.com': '142.250.186.36',
@@ -119,6 +151,9 @@ offline_DNS = {
 ##########################################################################
 
 }
+
+
+
 
 
 
