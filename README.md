@@ -18,6 +18,7 @@
 - یا از v2ray فایل کانفیگ custom را import کنید
 - اگر روی گوشی هستید باید برنامه pycode را از داخل v2ray مستثنی کنید 
 - یوتیوب را باز کنید.
+- این <a href="https://www.youtube.com/watch?v=EhegyoV3LOE">آموزش ویدئویی </a> مراحل توسط دوستمون <a href="https://github.com/gfwsidehustle">gfwsidehustle</a>  
 
 
 
