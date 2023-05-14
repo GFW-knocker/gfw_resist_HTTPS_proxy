@@ -1,4 +1,4 @@
-لطفا از <a href="https://github.com/Ehsanfarahi22/Bypassing-SNI-based-HTTPS-Filtering">فورک Ehsanfarahi22</a> هم بازدید کنید تغییرات خوبی روی این کد دادند
+کدنویس های حرفه ای - لطفا از <a href="https://github.com/Ehsanfarahi22/Bypassing-SNI-based-HTTPS-Filtering">فورک Ehsanfarahi22</a> هم بازدید کنید - تغییرات خوبی روی این پروژه دادند
 # آپدیت 15-2-1402
 - برای گوشی از پوشه اندروید استفاده کنید
 - با نت ایرانسل بهتر جواب میگیرید
