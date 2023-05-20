@@ -15,7 +15,7 @@ import random
 listen_PORT = 4500    # pyprox listening to 127.0.0.1:listen_PORT
 
 num_fragment = 87  # total number of chunks that ClientHello devided into (chunks with random size)
-fragment_sleep = 0.01  # sleep between each fragment to make GFW-cache full so it forget previous chunks. LOL.
+fragment_sleep = 0.001  # sleep between each fragment to make GFW-cache full so it forget previous chunks. LOL.
 
 log_every_N_sec = 30   # every 30 second , update log file with latest DNS-cache statistics
 
