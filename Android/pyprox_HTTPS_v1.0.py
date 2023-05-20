@@ -184,12 +184,12 @@ class DNS_over_Fragment:
 
         offline_ip = offline_DNS.get(server_name,None)
         if(offline_ip!=None):
-            print('offline DNS -->',server_name,offline_ip)
+            # print('offline DNS -->',server_name,offline_ip)
             return offline_ip
         
         cache_ip = DNS_cache.get(server_name,None)
         if(cache_ip!=None):
-            print('cached DNS -->',server_name,cache_ip)
+            # print('cached DNS -->',server_name,cache_ip)
             return cache_ip
 
         quary_params = {
@@ -199,7 +199,7 @@ class DNS_over_Fragment:
             }
         
 
-        print(f'online DNS Query',server_name)        
+        # print(f'online DNS Query',server_name)        
         try:
             query_message = dns.message.make_query(server_name,'A')
             query_wire = query_message.to_wire()
@@ -218,12 +218,12 @@ class DNS_over_Fragment:
                     if (x.rdtype == dns.rdatatype.A):
                         resolved_ip = x[0].address    # pick first ip in DNS answer
                         DNS_cache[server_name] = resolved_ip                        
-                        print("################# DNS Cache is : ####################")
-                        print(DNS_cache)         # print DNS cache , it usefull to track all resolved IPs , to be used later.
-                        print("#####################################################")
+                        # print("################# DNS Cache is : ####################")
+                        # print(DNS_cache)         # print DNS cache , it usefull to track all resolved IPs , to be used later.
+                        # print("#####################################################")
                         break
                 
-                print(f'online DNS --> Resolved {server_name} to {resolved_ip}')                
+                # print(f'online DNS --> Resolved {server_name} to {resolved_ip}')                
                 return resolved_ip
             else:
                 print(f'Error: {ans.status_code} {ans.reason}')
@@ -272,20 +272,20 @@ class ThreadedServer(object):
             q_line = str(data).split('\r\n')
             q_url = q_line[0].split()[1]
             q_url = q_url.replace('http://','https://')  
-            print('redirect http to HTTPS',q_url)          
+            # print('redirect http to HTTPS',q_url)          
             response_data = 'HTTP/1.1 302 Found\r\nLocation: '+q_url+'\r\nProxy-agent: MyProxy/1.0\r\n\r\n'            
             client_socket.sendall(response_data.encode())
             client_socket.close()            
             return None
         else:
-            print('Unknown Method',str(data[:10]))            
+            # print('Unknown Method',str(data[:10]))            
             response_data = b'HTTP/1.1 400 Bad Request\r\nProxy-agent: MyProxy/1.0\r\n\r\n'
             client_socket.sendall(response_data)
             client_socket.close()            
             return None
 
         
-        print(server_name,'-->',server_port)
+        # print(server_name,'-->',server_port)
 
         try:
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -487,7 +487,7 @@ def send_data_in_fragment(data , sock):
     
     fragment_data = data[i_pre:L_data]
     sock.sendall(fragment_data)
-    print('----------finish------------')
+    # print('----------finish------------')
 
 
 
