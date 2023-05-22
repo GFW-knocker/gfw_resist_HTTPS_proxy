@@ -17,7 +17,8 @@
 - اسکریپ pyprox_HTTPS را اجرا کنید
 - مرورگر خود را روی پروکسی HTTPS 127.0.0.1:4500 تنظیم کنید
 - یا از v2ray فایل کانفیگ custom را import کنید
-- اگر روی گوشی هستید باید برنامه pycode را از داخل v2ray مستثنی کنید 
+- یا از nekobox ، matsuri ، nekoray یک کانفیگ دستی از نوع HTTP با آدرس 127.0.0.1 و پورت 4500 درست کنید ([راهنمایی](https://github.com/GFW-knocker/gfw_resist_HTTPS_proxy/tree/main/Android))
+- اگر روی گوشی و vpn mode هستید باید برنامه python را از داخل v2ray مستثنی کنید 
 - یوتیوب را باز کنید.
 - این <a href="https://www.youtube.com/watch?v=EhegyoV3LOE">آموزش ویدئویی </a> مراحل توسط دوستمون <a href="https://github.com/gfwsidehustle">gfwsidehustle</a>  
 
