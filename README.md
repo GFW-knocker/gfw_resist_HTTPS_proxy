@@ -16,7 +16,7 @@
 - پکیج های dnspython و requests را با دستور pip در cmd روی پایتون نصب کنید
 - اسکریپ pyprox_HTTPS را اجرا کنید
 - مرورگر خود را روی پروکسی HTTPS 127.0.0.1:4500 تنظیم کنید
-- یا از v2ray فایل کانفیگ custom را import کنید
+- یا از v2rayN فایل کانفیگ custom را import کنید
 - یا از nekobox ، matsuri ، nekoray یک کانفیگ دستی از نوع HTTP با آدرس 127.0.0.1 و پورت 4500 درست کنید ([راهنمایی](https://github.com/GFW-knocker/gfw_resist_HTTPS_proxy/tree/main/Android))
 - اگر روی گوشی و vpn mode هستید باید برنامه python را از داخل v2ray مستثنی کنید 
 - یوتیوب را باز کنید.
