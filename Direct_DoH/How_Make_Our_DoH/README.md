@@ -1,4 +1,4 @@
-# how to make our DNS server
+# how to make our DNS over HTTPS server
 1. install nginx<br>
 <code>apt install nginx-light</code>
 2. add proxy-pass argument in file<br>
