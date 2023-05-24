@@ -1,7 +1,7 @@
 # how to make our DNS over HTTPS server
 1. install nginx<br>
 <code>apt install nginx-light</code>
-2. add proxy-pass argument in file<br>
+2. add these line in file
 <code> /etc/nginx/sites-available/default </code><br>
 <code>
     # cloudflare HTTPS port [ 443 , 2053 , 2083 , 2087 , 2096 , 8443 ]
@@ -24,19 +24,18 @@
 
 4. use your DoH<br>
 <code>Json Format:
-    DNS_url = 'https://your.site:8443/mygoogle/resolve?name='
-    DNS_url = 'https://your.site:8443/mycloudflare/dns-query?name='
-    Wire Format:
-    DNS_url = 'https://your.site:8443/mygoogle/dns-query?dns='
-    DNS_url = 'https://your.site:8443/mycloudflare/dns-query?dns='
-</code>
+DNS_url = 'https://your.site:8443/mygoogle/resolve?name='
+DNS_url = 'https://your.site:8443/mycloudflare/dns-query?name='
+Wire Format:
+DNS_url = 'https://your.site:8443/mygoogle/dns-query?dns='
+DNS_url = 'https://your.site:8443/mycloudflare/dns-query?dns='</code>
 
 # we have two DNS query standard
-<code>
-  JSON format:
-  https://dns.google/resolve?name=yahoo.com
-  https://cloudflare-dns.com/dns-query?name=yahoo.com
-  WIRE format:
-  https://dns.google/dns-query?dns=B64encode
-  https://cloudflare-dns.com/dns-query?dns=B64encode
-</code>
+<code>JSON format:
+https://dns.google/resolve?name=yahoo.com
+https://cloudflare-dns.com/dns-query?name=yahoo.com
+WIRE format:
+https://dns.google/dns-query?dns=B64encode
+https://cloudflare-dns.com/dns-query?dns=B64encode</code>
+
+
