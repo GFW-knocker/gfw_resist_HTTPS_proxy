@@ -1,4 +1,4 @@
-# how to make your DNS over HTTPS server
+# how to make your DoH server
 1. install nginx<br>
 <code>apt install nginx-light</code>
 2. add these line in file
