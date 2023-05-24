@@ -33,7 +33,7 @@ DNS_url = 'https://your.site:8443/mycloudflare/dns-query?dns='</code>
 5. you can put your.site behind cloudflare but ensure that your.domain is resolved to clean ip 
 
 # Additional Tutorial:
-1. we have two DNS query standard<br>
+1. we have two DNS query standard (some server only support WIRE format)<br>
 <code>JSON format:
 https://dns.google/resolve?name=yahoo.com
 https://cloudflare-dns.com/dns-query?name=yahoo.com
