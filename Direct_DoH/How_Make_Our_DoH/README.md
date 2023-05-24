@@ -4,18 +4,18 @@
 2. add these line in file
 <code> /etc/nginx/sites-available/default </code><br>
 <code>
-    # cloudflare HTTPS port [ 443 , 2053 , 2083 , 2087 , 2096 , 8443 ]
-    server {
-      listen 8443 ssl default_server;	
-      ssl_certificate    /root/my_cert/your_cert.pem;
-      ssl_certificate_key    /root/my_cert/your_cert.key;	
-      location /mycloudflare/ {
-        proxy_pass https://cloudflare-dns.com:443/;
-      }
-      location /mygoogle/ {
-        proxy_pass https://dns.google:443/;
-      }	
-    }
+# cloudflare HTTPS port [ 443 , 2053 , 2083 , 2087 , 2096 , 8443 ]
+server {
+  listen 8443 ssl default_server;	
+  ssl_certificate    /root/my_cert/your_cert.pem;
+  ssl_certificate_key    /root/my_cert/your_cert.key;	
+  location /mycloudflare/ {
+    proxy_pass https://cloudflare-dns.com:443/;
+  }
+  location /mygoogle/ {
+    proxy_pass https://dns.google:443/;
+  }	
+}
 </code>
 
 3. reload nginx<br>
@@ -29,6 +29,8 @@ DNS_url = 'https://your.site:8443/mycloudflare/dns-query?name='
 Wire Format:
 DNS_url = 'https://your.site:8443/mygoogle/dns-query?dns='
 DNS_url = 'https://your.site:8443/mycloudflare/dns-query?dns='</code>
+
+5. you can put your.site behind cloudflare but ensure that your.domain is resolved to clean ip 
 
 # we have two DNS query standard
 <code>JSON format:
