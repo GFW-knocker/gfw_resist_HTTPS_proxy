@@ -158,7 +158,7 @@ class DNS_over_Fragment:
             return cache_ip
 
         quary_params = {
-            'name': server_name,
+            # 'name': server_name,    # no need for this when using dns wire-format , cause 400 err on some server
             'type': 'A',
             'ct': 'application/dns-message',
             }
