@@ -8,7 +8,7 @@
 <img src="/asset/neko_http_config.jpg?raw=true" width="500" ><br><br>
 اگر روی vpn mode هستید باید ترافیک پایتون را از vpn مستثنی کنید <br>
 <img src="/asset/neko_bypass_app.jpg?raw=true" width="500" ><br><br>
-3. در صورت تمایل میتوانید بجای ساخت کانفیگ ، فایل آماده json را import کنید
+3. در صورت تمایل میتوانید بجای ساخت کانفیگ ، فایل آماده json را import کنید (و بعد باید پایتون را از vpn مستثنی کنید)
 
 # رفع اشکال
 - برنامه v2rayNG روی گوشی از پروتکل HTTP پشتیبانی نمیکند بنابراین از nekobox یا matsuri استفاده کنید
