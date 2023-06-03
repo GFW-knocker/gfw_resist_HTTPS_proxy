@@ -6,7 +6,7 @@
 <img src="/asset/neko_http_menu.jpg?raw=true" width="500" ><br><br>
 اگر پایتون روی گوشی اجرا شده آدرس 127.0.0.1 و اگر روی کامپیوتر باشد ادرس ip کامپیوتر مثلا 192.168.1.2 را میدهید<br>
 <img src="/asset/neko_http_config.jpg?raw=true" width="500" ><br><br>
-اگر پایتون روی گوشی اجرا شده باید ترافیک آن را از vpn مستثنی کنید <br>
+اگر روی vpn mode هستید باید ترافیک پایتون را از vpn مستثنی کنید <br>
 <img src="/asset/neko_bypass_app.jpg?raw=true" width="500" ><br><br>
 3. در صورت تمایل میتوانید بجای ساخت کانفیگ ، فایل آماده json را import کنید
 
