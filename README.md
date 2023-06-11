@@ -1,4 +1,11 @@
-کدنویس های حرفه ای - لطفا از <a href="https://github.com/Ehsanfarahi22/Bypassing-SNI-based-HTTPS-Filtering">فورک Ehsanfarahi22</a> هم بازدید کنید - تغییرات خوبی روی این پروژه دادند
+# آپدیت 21-3-1402
+- یوتیوب ، گوگل پلی ، اینستاگرام و توییتر به صورت مستقیم آزاد شد
+- از نسخه pyprox_HTTPS_v3.0.py استفاده کنید
+- مقدار num_fragment : برای همراه اول 80 الی 150 ،  برای ایرانسل 10 تا 40 
+- برای استفاده از DNS خود cloudflare باید ip تمیز کلودفلر را جلوی cludflare-dns.com قرار دهید در قسمت offline DNS  
+- با مشاهده فایل log تولید شده میتوانید دامنه و ایپی های فیلترشده را استخراج و در قسمت offline DNS با ایپی سالم اگر دارید جایگزین کنید.
+
+ 
 # آپدیت 3-3-1402
 - نسخه Direct_DoH تمام ip ها را از DoH میگیرد و محدودیت های comment و ... برطرف میشود (فقط روی برخی نت ها جواب میدهد چون برخی ip های گوگل برخی جاها فیلتر است)
 - برای گوشی از پوشه اندروید استفاده کنید
@@ -71,7 +78,7 @@
 <a href="https://github.com/alidxdydz">alidxdydz</a><br>
 
 2. helping on youtube related things<br>
-<a href="https://github.com/Ehsanfarahi22">Ehsanfarahi22</a><br>
+<a href="https://github.com/Ehsanfarahi22/Bypassing-SNI-based-HTTPS-Filtering">a Fork</a> by <a href="https://github.com/Ehsanfarahi22">Ehsanfarahi22</a><br>
 <a href="https://github.com/FarhadiAlireza">FarhadiAlireza</a><br>
 <a href="https://github.com/free-the-internet">free-the-internet</a><br>
 
