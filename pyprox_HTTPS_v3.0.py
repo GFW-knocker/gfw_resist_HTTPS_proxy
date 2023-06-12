@@ -17,7 +17,7 @@ listen_PORT = 4500    # pyprox listening to 127.0.0.1:listen_PORT
 num_fragment = 87  # total number of chunks that ClientHello devided into (chunks with random size)
 fragment_sleep = 0.001  # sleep between each fragment to make GFW-cache full so it forget previous chunks. LOL.
 
-log_every_N_sec = 30   # every 30 second , update log file with latest DNS-cache statistics
+log_every_N_sec = 15   # every 15 second , update log file with latest DNS-cache statistics
 
 allow_insecure = True   # set true to allow certificate domain mismatch in DoH
 
@@ -44,7 +44,7 @@ offline_DNS = {
 # 'cloudflare-dns.com':'1.1.1.1',  # IP filtered
 # 'cloudflare-dns.com':'172.67.128.43',   # any cludflare ip can be used for cloudflare DoH 
 # 'cloudflare-dns.com':'64.68.192.137',   
-'cloudflare-dns.com':'203.32.120.226',   
+'cloudflare-dns.com':'203.32.120.226',
 
 
 'dns.google':'8.8.8.8',    # IP filtered
@@ -60,7 +60,7 @@ offline_DNS = {
 
 
 # ################# twitter working pack ###################
-'ocsp.digicert.com': '192.229.211.108',
+# 'ocsp.digicert.com': '192.229.211.108',
 
 'api.twitter.com': '104.244.42.66',
 'twitter.com': '104.244.42.1',
@@ -74,10 +74,56 @@ offline_DNS = {
 
 
 
-# ################# Instagram working pack ###################
-'instagram.com': '157.240.0.174',
-'www.instagram.com': '157.240.0.174',
-'static.cdninstagram.com': '157.240.251.63',
+# ################# Instagram whatsapp facebook working pack ###################
+'instagram.com': '163.70.128.174',
+'www.instagram.com': '163.70.128.174',
+'static.cdninstagram.com': '163.70.132.63',
+'scontent.cdninstagram.com':'163.70.132.63',
+'privacycenter.instagram.com': '163.70.128.174',
+'help.instagram.com': '163.70.128.174',
+
+'e1.whatsapp.net':'163.70.128.60',
+'e2.whatsapp.net':'163.70.128.60',
+'e3.whatsapp.net':'163.70.128.60',
+'e4.whatsapp.net':'163.70.128.60',
+'e5.whatsapp.net':'163.70.128.60',
+'e6.whatsapp.net':'163.70.128.60',
+'e7.whatsapp.net':'163.70.128.60',
+'e8.whatsapp.net':'163.70.128.60',
+'e9.whatsapp.net':'163.70.128.60',
+'e10.whatsapp.net':'163.70.128.60',
+'e11.whatsapp.net':'163.70.128.60',
+'e12.whatsapp.net':'163.70.128.60',
+'e13.whatsapp.net':'163.70.128.60',
+'e14.whatsapp.net':'163.70.128.60',
+'e15.whatsapp.net':'163.70.128.60',
+'e16.whatsapp.net': '163.70.128.60',
+
+'dit.whatsapp.net': '185.60.219.60',
+'g.whatsapp.net': '185.60.218.54',
+'wa.me':'185.60.219.60',
+
+'web.whatsapp.com':'31.13.83.51',
+'whatsapp.net':'31.13.83.51',
+'whatsapp.com':'31.13.83.51',
+'cdn.whatsapp.net':'31.13.83.51',
+'snr.whatsapp.net':'31.13.83.51', 
+
+'static.xx.fbcdn.net': '31.13.75.13',
+'video.fevn1-2.fna.fbcdn.net': '185.48.241.146',
+'video.fevn1-4.fna.fbcdn.net': '185.48.243.145',
+'scontent.xx.fbcdn.net':'185.48.240.146',
+'scontent.fevn1-1.fna.fbcdn.net': '185.48.240.145',
+'scontent.fevn1-2.fna.fbcdn.net': '185.48.241.145',
+'scontent.fevn1-3.fna.fbcdn.net': '185.48.242.146',
+'scontent.fevn1-4.fna.fbcdn.net': '185.48.243.147',
+
+'connect.facebook.net': '31.13.84.51',
+'facebook.com':'31.13.65.49',
+'developers.facebook.com': '31.13.84.8',
+
+'about.meta.com': '163.70.128.13',
+'meta.com':'163.70.128.13',
 # ##########################################################
 
 
@@ -168,7 +214,7 @@ offline_DNS = {
 
 
 # ignore description below , its for old code , just leave it intact.
-my_socket_timeout = 21 # default for google is ~21 sec , recommend 60 sec unless you have low ram and need close soon
+my_socket_timeout = 8 # default for google is ~21 sec , recommend 60 sec unless you have low ram and need close soon
 first_time_sleep = 0.1 # speed control , avoid server crash if huge number of users flooding
 accept_time_sleep = 0.01 # avoid server crash on flooding request -> max 100 sockets per second
 
@@ -319,15 +365,27 @@ class ThreadedServer(object):
                 # print('Not IP , its domain , try to resolve it')
                 server_IP = self.DoH.query(server_name)
             
-            server_socket.connect((server_IP, server_port))
-            # Send HTTP 200 OK
-            response_data = b'HTTP/1.1 200 Connection established\r\nProxy-agent: MyProxy/1.0\r\n\r\n'            
-            client_socket.sendall(response_data)
-            return server_socket
+
+            try:
+                server_socket.connect((server_IP, server_port))
+                # Send HTTP 200 OK
+                response_data = b'HTTP/1.1 200 Connection established\r\nProxy-agent: MyProxy/1.0\r\n\r\n'            
+                client_socket.sendall(response_data)
+                return server_socket
+            except socket.error:
+                print("@@@ "+server_IP+":"+str(server_port)+ " ==> filtered @@@")
+                # Send HTTP ERR 502
+                response_data = b'HTTP/1.1 502 Bad Gateway (is IP filtered?)\r\nProxy-agent: MyProxy/1.0\r\n\r\n'
+                client_socket.sendall(response_data)
+                client_socket.close()
+                server_socket.close()
+                return server_IP
+
+            
         except Exception as e:
             print(repr(e))
             # Send HTTP ERR 502
-            response_data = b'HTTP/1.1 502 Bad Gateway (is IP filtered?)\r\nProxy-agent: MyProxy/1.0\r\n\r\n'
+            response_data = b'HTTP/1.1 502 Bad Gateway (Strange ERR?)\r\nProxy-agent: MyProxy/1.0\r\n\r\n'
             client_socket.sendall(response_data)
             client_socket.close()
             server_socket.close()
@@ -347,9 +405,19 @@ class ThreadedServer(object):
             client_sock.close()
             return False
         
+        if( isinstance(backend_sock,str) ):
+            this_ip = backend_sock
+            if(this_ip not in IP_UL_traffic):
+                IP_UL_traffic[this_ip] = 0
+                IP_DL_traffic[this_ip] = 0
+            client_sock.close()
+            return False
+
+        
         this_ip = backend_sock.getpeername()[0]
         if(this_ip not in IP_UL_traffic):
             IP_UL_traffic[this_ip] = 0
+            IP_DL_traffic[this_ip] = 0
         
         
         while True:
@@ -392,10 +460,7 @@ class ThreadedServer(object):
 
             
     def my_downstream(self, backend_sock , client_sock):
-        this_ip = backend_sock.getpeername()[0]
-        if(this_ip not in IP_DL_traffic):
-            IP_DL_traffic[this_ip] = 0
-
+        this_ip = backend_sock.getpeername()[0]        
 
         first_flag = True
         while True:
@@ -435,14 +500,14 @@ class ThreadedServer(object):
 
 def merge_all_dicts():
     full_DNS = {**DNS_cache, **offline_DNS}  # merge two dict , need python 3.5 or up
-    inv_DNS = { v:k for k, v in full_DNS.items()}  # inverse mapping to look for domain given ip
+    inv_DNS = { v:k for k,v in full_DNS.items()}  # inverse mapping to look for domain given ip
     stats = {}
-    for ip in IP_DL_traffic:  
+    for ip in IP_UL_traffic:  
         up = round(IP_UL_traffic[ip]/(1024.0),3)
         down = round(IP_DL_traffic[ip]/(1024.0),3)
         host = inv_DNS.get(ip,'?')
-        if((up>down) and (down<1.0)):  # download below 1KB
-            maybe_filter = 'maybe'
+        if( (down<1.0) ):  # download below 1KB
+            maybe_filter = ' yes'
         else:
             maybe_filter = '-------'
 
