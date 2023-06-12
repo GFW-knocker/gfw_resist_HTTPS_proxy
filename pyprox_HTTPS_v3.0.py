@@ -81,6 +81,8 @@ offline_DNS = {
 'scontent.cdninstagram.com':'163.70.132.63',
 'privacycenter.instagram.com': '163.70.128.174',
 'help.instagram.com': '163.70.128.174',
+'l.instagram.com':'163.70.128.174',
+
 
 'e1.whatsapp.net':'163.70.128.60',
 'e2.whatsapp.net':'163.70.128.60',
@@ -110,6 +112,8 @@ offline_DNS = {
 'snr.whatsapp.net':'31.13.83.51', 
 
 'static.xx.fbcdn.net': '31.13.75.13',
+'scontent-mct1-1.xx.fbcdn.net':'31.13.75.13',
+'video-mct1-1.xx.fbcdn.net': '31.13.75.13',
 'video.fevn1-2.fna.fbcdn.net': '185.48.241.146',
 'video.fevn1-4.fna.fbcdn.net': '185.48.243.145',
 'scontent.xx.fbcdn.net':'185.48.240.146',
@@ -117,6 +121,7 @@ offline_DNS = {
 'scontent.fevn1-2.fna.fbcdn.net': '185.48.241.145',
 'scontent.fevn1-3.fna.fbcdn.net': '185.48.242.146',
 'scontent.fevn1-4.fna.fbcdn.net': '185.48.243.147',
+
 
 'connect.facebook.net': '31.13.84.51',
 'facebook.com':'31.13.65.49',
