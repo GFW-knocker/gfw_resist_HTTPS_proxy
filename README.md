@@ -31,7 +31,7 @@
 - اگر روی گوشی و vpn mode هستید باید برنامه python را از داخل v2ray مستثنی کنید 
 - یوتیوب را باز کنید.
 - این <a href="https://www.youtube.com/watch?v=EhegyoV3LOE">آموزش ویدئویی </a> برای ویندوز توسط دوستمون <a href="https://github.com/gfwsidehustle">gfwsidehustle</a>
-- این <a href="https://youtu.be/zOSR8BOqzI4">آموزش ویدئویی </a> برای لینوکس و مک توسط دوستمون <a href="https://github.com/TeleDark">TeleDark</a>
+- این <a href="https://www.youtube.com/watch?v=zOSR8BOqzI4">آموزش ویدئویی </a> برای لینوکس و مک توسط دوستمون <a href="https://github.com/TeleDark">TeleDark</a>
 
 
 # gfw_resist_HTTPS_proxy
