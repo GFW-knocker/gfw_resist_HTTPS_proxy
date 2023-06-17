@@ -1,10 +1,9 @@
 # آپدیت 22-3-1402
 - یوتیوب ، گوگل پلی ، اینستاگرام ، واتساپ و توییتر به صورت مستقیم آزاد شد
 - از نسخه pyprox_HTTPS_v3.0.py استفاده کنید
-- مقدار num_fragment : برای همراه اول 80 الی 150 ،  برای ایرانسل 10 تا 40 
-- برای استفاده از DNS خود cloudflare باید ip تمیز کلودفلر را جلوی cludflare-dns.com قرار دهید در قسمت offline DNS  
-- با مشاهده فایل log تولید شده میتوانید دامنه و ایپی های فیلترشده را استخراج و در قسمت offline DNS با ایپی سالم اگر دارید جایگزین کنید.
-- برای تست واتساپ یا گوگل پلی میتوانید با nekobox ، ترافیک گوشی را با پروتکل http روی پایتون هدایت کنید
+- مقدار num_fragment : برای همراه اول 80 الی 250 ،  برای ایرانسل 10 تا 40
+- مقدار fragment_sleep : از 0.001 الی 0.01
+- برای تست واتساپ یا گوگل پلی میتوانید با nekobox ، ترافیک گوشی را با پروتکل http روی پایتون pc هدایت کنید
 - این کد صرفا اثبات ادعا است و ممکنه ایپی ها روی نت شما فیلتر باشد.
 - انتشار اپ اندرویدی توسط یکی از دوستان به زودی.
 
@@ -31,8 +30,8 @@
 - یا از nekobox ، matsuri ، nekoray یک کانفیگ دستی از نوع HTTP با آدرس 127.0.0.1 و پورت 4500 درست کنید ([راهنمایی](https://github.com/GFW-knocker/gfw_resist_HTTPS_proxy/tree/main/Android))
 - اگر روی گوشی و vpn mode هستید باید برنامه python را از داخل v2ray مستثنی کنید 
 - یوتیوب را باز کنید.
-- این <a href="https://www.youtube.com/watch?v=EhegyoV3LOE">آموزش ویدئویی </a> مراحل توسط دوستمون <a href="https://github.com/gfwsidehustle">gfwsidehustle</a>  
-
+- این <a href="https://www.youtube.com/watch?v=EhegyoV3LOE">آموزش ویدئویی </a> برای ویندوز توسط دوستمون <a href="https://github.com/gfwsidehustle">gfwsidehustle</a>
+- این <a href="https://youtu.be/zOSR8BOqzI4">آموزش ویدئویی </a> برای لینوکس و مک توسط دوستمون <a href="https://github.com/TeleDark">TeleDark</a>
 
 
 # gfw_resist_HTTPS_proxy
