@@ -201,6 +201,7 @@ offline_DNS = {
 'www.google.com': '142.250.186.36',
 # 'www.google.com': '216.239.38.120',
 'youtube.com':'216.239.38.120',
+'youtu.be':'216.239.38.120',
 'www.youtube.com':'216.239.38.120',
 'i.ytimg.com':'216.239.38.120',
 
