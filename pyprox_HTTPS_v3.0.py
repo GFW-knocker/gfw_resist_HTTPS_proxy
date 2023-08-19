@@ -198,12 +198,20 @@ offline_DNS = {
 'rr4---sn-nv47zn7r.googlevideo.com': '173.194.15.41',
 'rr4---sn-hju7en7r.googlevideo.com': '74.125.167.90',
 
+    
 'www.google.com': '142.250.186.36',
+#*  216 ip . enable restricted mode in youtube #*
 # 'www.google.com': '216.239.38.120',
-'youtube.com':'216.239.38.120',
-'youtu.be':'216.239.38.120',
-'www.youtube.com':'216.239.38.120',
-'i.ytimg.com':'216.239.38.120',
+#'youtube.com':'216.239.38.120',
+#'youtu.be':'216.239.38.120',
+#'www.youtube.com':'216.239.38.120',
+#'i.ytimg.com':'216.239.38.120',
+
+# 142 is non-Restricted youtube ip
+'youtube.com':'142.250.185.78',
+'youtu.be':'142.250.185.174',
+'www.youtube.com':'142.250.185.238',
+'i.ytimg.com':'142.250.185.86',
 
 # 'yt3.ggpht.com': '64.233.165.198',   # filtered
 # 'yt3.ggpht.com': '142.250.179.161',  # filtered
