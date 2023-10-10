@@ -1,6 +1,6 @@
-from PySide2.QtWidgets import *  # type: ignore
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
+from PySide6.QtWidgets import *  # update to PySide6
+from PySide6.QtCore import *  # update to PySide6
+from PySide6.QtGui import *  # update to PySide6
 from pathlib import Path
 import dns.rdatatype
 import dns.message   #  --> pip install dnspython
@@ -289,7 +289,6 @@ class Ui_MainWindow(object):
 
     def stop_worker(self):
         self.thread[1].stop()
-        self.start_ch.setEnabled(True)
 
 
 class ThreadClass(QThread,Ui_MainWindow):
@@ -313,6 +312,7 @@ class ThreadClass(QThread,Ui_MainWindow):
         self.is_running = False
         #print(" \n Stop thread... \n")
         self.terminate()
+        exit()
 
 DNS_url = 'https://cloudflare-dns.com/dns-query?dns='
 # DNS_url = 'https://8.8.4.4/dns-query?dns='      # blocked?
@@ -863,5 +863,5 @@ if __name__ == '__main__':
     MainWindow = QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
+    sys.exit(app.exec())
