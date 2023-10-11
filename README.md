@@ -5,7 +5,7 @@
 ![image](https://github.com/Elite-Netbios/gfw_resist_HTTPS_proxy/assets/44586882/376754f8-7935-49a6-af17-b39462af3400)
 
 
-در آپدیت بعدی برنامه قابلیت Fragment Checker هم اضافه خواهد شد با استفاده از fracment checker دیگه نیازی نیست به صورت دستی تمام fragment number ها رو تنظیم و تست کنید این قابلیت به صورت خودکار مناسب ترین Fragment Number رو پیشنهاد میکنه ! 
+در آپدیت بعدی , قابلیت Fragment Checker هم اضافه خواهد شد با استفاده از fragment checker دیگه نیازی نیست به صورت دستی تمام fragment number ها رو تنظیم و تست کنید این قابلیت به صورت خودکار مناسب ترین Fragment Number رو پیشنهاد میکنه ! 
 
 # آپدیت 7-4-1402 : اینترنت برای نیازمندان
 فاز اول پروژه [MahsaNG](https://github.com/GFW-knocker/MahsaNG) منتشر شد. [دانلود آخرین نسخه اندروید](https://github.com/GFW-knocker/MahsaNG/releases/latest) . در این نسخه **کانفیگ های رایگان v2ray** برای عموم مردم ارائه شده و همچنین **یوتیوب و توییتر و برخی دیگر از سرویس ها** بصورت مستقیم آزاد شدند. در فاز بعدی با گسترش شبکه مهسا ، کانفیگ های چرخشی به تعداد انبوه و مجهز به پایشگر اتومات ارائه خواهد شد. MahsaNG قسمت کلاینت پروژه [Segaro Dream](https://github.com/GFW-knocker/Segaro_Dream) است.
