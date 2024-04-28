@@ -171,7 +171,7 @@
           "http-in"
         ],
         "type": "field",
-        "port": "8443",
+        "port": "53",
         "outboundTag": "dns-out",
         "enabled": true
       },
