@@ -1,4 +1,4 @@
-# آپدیت 1403-3-8 : آپدیت پارامترهای فرگمنت
+# آپدیت 8-3-1403 : آپدیت پارامترهای فرگمنت
 از آنجایی که تکنولوژی فرگمنت در هسته 1.8.3 xray پیاده سازی شده ، با افزودن [این کانفیگ serverless_TLSFrag_xray.json](https://github.com/GFW-knocker/gfw_resist_HTTPS_proxy/blob/main/ServerLess_TLSFrag_Xray_Config.json) یا [این کانفیگ با پارامترهای جدید serverless_TLSFrag_xray_new.json](https://github.com/GFW-knocker/gfw_resist_HTTPS_proxy/blob/main/ServerLess_TLSFrag_Xray_Config_New.json) در هر کلاینت با هسته 1.8.3 به بالا میتوانید از یوتیوب بصورت مستقیم و بدون سرور واسطه استفاده کنید<p>
 credit: alidxdy , rrouzbeh
 # آپدیت 7-4-1402 : اینترنت برای نیازمندان
