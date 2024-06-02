@@ -89,6 +89,7 @@ credit: alidxdy , rrouzbeh
 <a href="https://github.com/Ehsanfarahi22/Bypassing-SNI-based-HTTPS-Filtering">a Fork</a> by <a href="https://github.com/Ehsanfarahi22">Ehsanfarahi22</a><br>
 <a href="https://github.com/FarhadiAlireza">FarhadiAlireza</a><br>
 <a href="https://github.com/free-the-internet">free-the-internet</a><br>
+<a href="https://github.com/alirezafazeli8">FazeliTech</a><br>
 
 3. & my lovely friends for everything<br>
 <a href="https://t.me/ircfspace">IRCF.space</a><br>
