@@ -1,4 +1,5 @@
 {
+  "remarks": "GFW-knocker",
   "log": {
     "access": "",
     "error": "",
@@ -13,10 +14,7 @@
       "protocol": "socks",
       "sniffing": {
         "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "destOverride": ["http", "tls"]
       },
       "settings": {
         "auth": "noauth",
@@ -31,10 +29,7 @@
       "protocol": "http",
       "sniffing": {
         "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "destOverride": ["http", "tls"]
       },
       "settings": {
         "auth": "noauth",
@@ -44,9 +39,6 @@
     }
   ],
 
-
-
-
   "outbounds": [
     {
       "tag": "pyprox",
@@ -55,17 +47,17 @@
         "servers": [
           {
             "address": "127.0.0.1",
-            "port": 4500            
+            "port": 4500
           }
         ]
-      }      
+      }
     },
 
     {
       "tag": "direct",
       "protocol": "freedom",
       "settings": {}
-    },    
+    },
 
     {
       "tag": "block",
@@ -76,21 +68,14 @@
         }
       }
     }
-
-
   ],
 
-
-
   "routing": {
-
     "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
         "type": "field",
-        "inboundTag": [
-          "api"
-        ],
+        "inboundTag": ["api"],
         "outboundTag": "api",
         "enabled": true
       },
@@ -101,8 +86,6 @@
         "outboundTag": "pyprox",
         "enabled": true
       }
-
-
     ]
   }
 }
