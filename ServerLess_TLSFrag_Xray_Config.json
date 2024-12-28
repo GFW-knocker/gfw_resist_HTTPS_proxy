@@ -1,4 +1,5 @@
 {
+  "remarks": "GFW-knocker",
   "log": {
     "access": "",
     "error": "",
@@ -16,22 +17,15 @@
         "104.16.124.175",
         "104.16.248.249",
         "104.16.249.249",
-        "104.26.13.8"        
+        "104.26.13.8"
       ],
-      "domain:youtube.com": [
-        "google.com"
-      ]
+      "domain:youtube.com": ["google.com"]
     },
-    "servers": [
-      "https://cloudflare-dns.com/dns-query"
-    ]
+    "servers": ["https://cloudflare-dns.com/dns-query"]
   },
   "inbounds": [
     {
-      "domainOverride": [
-        "http",
-        "tls"
-      ],
+      "domainOverride": ["http", "tls"],
       "protocol": "socks",
       "tag": "socks-in",
       "listen": "127.0.0.1",
@@ -43,10 +37,7 @@
       },
       "sniffing": {
         "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "destOverride": ["http", "tls"]
       }
     },
     {
@@ -59,10 +50,7 @@
       },
       "sniffing": {
         "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "destOverride": ["http", "tls"]
       }
     }
   ],
@@ -73,10 +61,7 @@
       "domainStrategy": "UseIP",
       "sniffing": {
         "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
+        "destOverride": ["http", "tls"]
       },
       "settings": {
         "fragment": {
@@ -124,10 +109,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "alpn": [
-            "h2",
-            "http/1.1"
-          ],
+          "alpn": ["h2", "http/1.1"],
           "fingerprint": "randomized",
           "publicKey": "",
           "serverName": "google.com",
@@ -166,20 +148,14 @@
     "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
-        ],
+        "inboundTag": ["socks-in", "http-in"],
         "type": "field",
         "port": "53",
         "outboundTag": "dns-out",
         "enabled": true
       },
       {
-        "inboundTag": [
-          "socks-in",
-          "http-in"
-        ],
+        "inboundTag": ["socks-in", "http-in"],
         "type": "field",
         "port": "0-65535",
         "outboundTag": "fragment-out",
