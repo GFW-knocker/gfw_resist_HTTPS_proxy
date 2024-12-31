@@ -1,3 +1,5 @@
 dnspython
 requests
 PyYAML
+colorama
+termcolor

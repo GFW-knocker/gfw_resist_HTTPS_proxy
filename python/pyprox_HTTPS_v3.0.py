@@ -18,6 +18,10 @@ import dns.message
 import dns.rdatatype
 import requests
 import yaml
+from colorama import just_fix_windows_console
+from termcolor import colored
+
+just_fix_windows_console()
 
 BASE_DIR = Path(__file__).resolve().parent
 STATIC = BASE_DIR / Path("static")
@@ -66,7 +70,7 @@ for item in [
 ]:
     offline_DNS.update(item)
 
-
+# ** Global Vars **
 DNS_cache = {}  # resolved domains
 IP_DL_traffic = {}  # download usage for each ip
 IP_UL_traffic = {}  # upload usage for each ip
@@ -80,13 +84,18 @@ class DNS_over_Fragment:
 
     def query(self, server_name):
         offline_ip = offline_DNS.get(server_name, None)
+        colored_server_name  = colored(server_name, "magenta")
         if offline_ip is not None:
-            logging.info("offline DNS -->", server_name, offline_ip)
+            colored_offline = colored("offline", "light_yellow")
+            logging.info(
+                f"{colored_offline} DNS --> {colored_server_name} {offline_ip}"
+            )
             return offline_ip
 
         cache_ip = DNS_cache.get(server_name, None)
         if cache_ip is not None:
-            logging.info("cached DNS -->", server_name, cache_ip)
+            colored_cached = colored("cached", "light_yellow")
+            logging.info(f"{colored_cached} DNS --> {colored_server_name} {cache_ip}")
             return cache_ip
 
         quary_params = {
@@ -95,7 +104,8 @@ class DNS_over_Fragment:
             "ct": "application/dns-message",
         }
 
-        logging.info("online DNS Query", server_name)
+        colored_online = colored("online", "light_green")
+        logging.info(f"{colored_online} DNS Query {colored_server_name}")
         try:
             query_message = dns.message.make_query(server_name, "A")
             query_wire = query_message.to_wire()
@@ -136,12 +146,16 @@ class DNS_over_Fragment:
                         )
                         break
 
-                logging.info(f"online DNS --> Resolved {server_name} to {resolved_ip}")
+                colored_resolved = colored(resolved_ip, "light_green")
+                colored_server_name = colored(server_name, "magenta")
+                logging.info(
+                    f"online DNS --> {colored_resolved} {colored_server_name} to {resolved_ip}"
+                )
                 return resolved_ip
             else:
-                logging.info(f"Error: {ans.status_code} {ans.reason}")
+                logging.error(f"Error: {ans.status_code} {ans.reason}")
         except Exception as e:
-            logging.info(repr(e))
+            logging.error(repr(e))
 
 
 class ThreadedServer(object):
@@ -172,7 +186,7 @@ class ThreadedServer(object):
         data = client_socket.recv(16384)
 
         if data[:7] == b"CONNECT":
-            server_name, server_port = self.extract_servername_and_port(data)
+            server_name, server_port = self.extract_server_name_and_port(data)
         elif (
             (data[:3] == b"GET")
             or (data[:4] == b"POST")
@@ -191,7 +205,7 @@ class ThreadedServer(object):
             logging.info(
                 "************************@@@@@@@@@@@@***************************"
             )
-            logging.info("redirect", q_method, "http to HTTPS", q_url)
+            logging.info(f"redirect {q_method} http to HTTPS {q_url}")
             response_data = (
                 "HTTP/1.1 302 Found\r\nLocation: "
                 + q_url
@@ -201,7 +215,7 @@ class ThreadedServer(object):
             client_socket.close()
             return None
         else:
-            logging.info("Unknown Method", str(data[:10]))
+            logging.info(f"Unknown Method {data[:10]}")
             response_data = (
                 b"HTTP/1.1 400 Bad Request\r\nProxy-agent: MyProxy/1.0\r\n\r\n"
             )
@@ -209,7 +223,7 @@ class ThreadedServer(object):
             client_socket.close()
             return None
 
-        logging.info(server_name, "-->", server_port)
+        logging.info(f"{server_name} --> {server_port}")
 
         try:
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -220,10 +234,10 @@ class ThreadedServer(object):
 
             try:
                 socket.inet_aton(server_name)
-                # logging.info('legal IP')
+                logging.debug("legal IP")
                 server_IP = server_name
             except socket.error:
-                # logging.info('Not IP , its domain , try to resolve it')
+                logging.debug("Not IP, its domain, try to resolve it")
                 server_IP = self.DoH.query(server_name)
 
             try:
@@ -233,8 +247,9 @@ class ThreadedServer(object):
                 client_socket.sendall(response_data)
                 return server_socket
             except socket.error:
+                colored_filtered = colored("filtered", "light_red")
                 logging.info(
-                    "@@@ " + server_IP + ":" + str(server_port) + " ==> filtered @@@"
+                    f"@@@ {server_IP}:{server_port} ==> {colored_filtered} @@@"
                 )
                 # Send HTTP ERR 502
                 response_data = b"HTTP/1.1 502 Bad Gateway (is IP filtered?)\r\nProxy-agent: MyProxy/1.0\r\n\r\n"
@@ -244,7 +259,7 @@ class ThreadedServer(object):
                 return server_IP
 
         except Exception as e:
-            logging.info(repr(e))
+            logging.error(repr(e))
             # Send HTTP ERR 502
             response_data = b"HTTP/1.1 502 Bad Gateway (Strange ERR?)\r\nProxy-agent: MyProxy/1.0\r\n\r\n"
             client_socket.sendall(response_data)
@@ -280,10 +295,10 @@ class ThreadedServer(object):
 
                     time.sleep(
                         first_time_sleep
-                    )  # speed control + waiting for packet to fully recieve
+                    )  # speed control + waiting for packet to fully receive
                     data = client_sock.recv(16384)
-                    # logging.info('len data -> ',str(len(data)))
-                    # logging.info('user talk :')
+                    logging.debug(f"len data -> {len(data)}")
+                    logging.debug("user talk :")
 
                     if data:
                         thread_down = threading.Thread(
@@ -306,8 +321,8 @@ class ThreadedServer(object):
                     else:
                         raise Exception("cli pipe close")
 
-            except Exception as _:
-                # logging.info('upstream : '+ repr(e) )
+            except Exception as e:
+                logging.debug("upstream : " + repr(e))
                 time.sleep(2)  # wait two second for another thread to flush
                 client_sock.close()
                 backend_sock.close()
@@ -337,16 +352,20 @@ class ThreadedServer(object):
                         raise Exception("backend pipe close")
 
             except Exception as _:
-                # logging.info('downstream '+backend_name +' : '+ repr(e))
+                # logging.debug(f'downstream {backend_name} : {repr(e)}')
                 time.sleep(2)  # wait two second for another thread to flush
                 backend_sock.close()
                 client_sock.close()
                 return False
 
-    def extract_servername_and_port(self, data):
-        host_and_port = str(data).split()[1]
-        host, port = host_and_port.split(":")
-        return (host, int(port))
+    def extract_server_name_and_port(self, data):
+        try:
+            host_and_port = str(data).split()[1]
+            *host, port = host_and_port.split(":")
+            host = ":".join(host)  # IPv6
+            return (host, int(port))
+        except ValueError as e:
+            logging.error(repr(e) + f"\nDATA: {data}")
 
 
 def merge_all_dicts():
@@ -392,7 +411,7 @@ def log_writer():
             f.write("\n#############################################\n")
             f.flush()
             f.truncate()
-            logging.info("info file writed to", f.name)
+            logging.info(colored("info file saved in ", "light_green") + f.name)
 
 
 def start_log_writer():
@@ -405,13 +424,13 @@ def send_data_in_fragment(data, sock):
     L_data = len(data)
     indices = random.sample(range(1, L_data - 1), num_fragment - 1)
     indices.sort()
-    # logging.info('indices=',indices)
+    logging.debug("indices=", indices)
 
     i_pre = 0
     for i in indices:
         fragment_data = data[i_pre:i]
         i_pre = i
-        # logging.info('send ',len(fragment_data),' bytes')
+        logging.debug("send ", len(fragment_data), " bytes")
 
         # sock.send(fragment_data)
         sock.sendall(fragment_data)
@@ -420,10 +439,14 @@ def send_data_in_fragment(data, sock):
 
     fragment_data = data[i_pre:L_data]
     sock.sendall(fragment_data)
-    logging.info("----------finish------------")
+    colored_finish = colored("finish", "light_green")
+    logging.info(f"---------- {colored_finish} ------------")
 
 
 if __name__ == "__main__":
     start_log_writer()
-    logging.info(f"Now listening at: {listen_HOST}:{listen_PORT}")
+    logging.info(colored("PyProx is Up!", "light_green"))
+    colored_listen_HOST = colored(listen_HOST, "light_blue")
+    colored_listen_PORT = colored(listen_PORT, "light_red")
+    logging.info(f"listening at: {colored_listen_HOST}:{colored_listen_PORT}")
     ThreadedServer(listen_HOST, listen_PORT).listen()
