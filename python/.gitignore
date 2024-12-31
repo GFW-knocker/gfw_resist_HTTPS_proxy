@@ -1,5 +1,5 @@
-# Static files
-static/
+# Log files
+DNS_IP_traffic_info.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
