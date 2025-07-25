@@ -1,0 +1,29 @@
+service:
+  # PyProx listening to listen_HOST:listen_PORT
+  port: 4500
+  host: 127.0.0.1
+  # Set true to allow certificate domain mismatch in DoH
+  allow_insecure: true
+
+fragment:
+  # total number of chunks that ClientHello divided into (chunks with random size)
+  num: 87
+  # sleep between each fragment to make GFW-cache full so it forget previous chunks. LOL.
+  sleep: 0.005
+
+socket:
+  # -- Ignore description below, its for old code, just leave it intact. --
+  # default for google is ~21 sec , recommend 60 sec unless you have low ram and need close soon
+  timeout: 8
+  # speed control, avoid server crash if huge number of users flooding
+  first_time_sleep: 0.1
+  # avoid server crash on flooding request -> max 100 sockets per second
+  accept_time_sleep: 0.01
+
+logging:
+  # update log file with latest DNS-cache statistics
+  every_N_sec: 30
+  # location of log file
+  filename: DNS_IP_traffic_info.txt
+  # format of log file
+  format: " %(asctime)s - %(levelname)s - %(message)s"
